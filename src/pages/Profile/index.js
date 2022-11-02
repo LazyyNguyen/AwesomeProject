@@ -1,8 +1,40 @@
-import * as React from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, StyleSheet, Image,FlatList } from 'react-native';
 
 
 function ProfileScreen() {
+  const [listItems, setListItems] = useState([
+    {
+      id: 0,
+      name: 'Private Account',
+      icon: require("../../../assets/images/profile/private.png")
+    },
+    {
+      id: 1,
+      name: 'My Consults',
+      icon: require("../../../assets/images/profile/myconsults.png")
+    },
+    {
+      id: 2,
+      name: 'My orders',
+      icon: require("../../../assets/images/profile/clock.png")
+    },
+    {
+      id: 3,
+      name: 'Billing',
+      icon: require("../../../assets/images/profile/billing.png")
+    }, {
+      id: 4,
+      name: 'Faq',
+      icon: require("../../../assets/images/profile/ques.png")
+    },
+    {
+      id: 5,
+      name: 'Settings',
+      icon: require("../../../assets/images/profile/setting.png")
+    },
+
+  ])
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
@@ -15,79 +47,26 @@ function ProfileScreen() {
         </View>
       </View>
       <View style={styles.mainContent}>
-        <View style={styles.profileItems}>
-          <Image
-            style={{ marginRight: 20 }}
-            source={require("../../../assets/images/profile/private.png")}
-          />
-          <View style={styles.Items}>
-            <Text>Private Account</Text>
-            <Image
-              style={{ alignSelf: 'flex-end' }}
-              source={require("../../../assets/images/profile/next.png")}
-            />
-          </View>
-        </View>
-        <View style={styles.profileItems}>
-          <Image
-            style={{ marginRight: 20 }}
-            source={require("../../../assets/images/profile/myconsults.png")}
-          />
-          <View style={styles.navItem}>
-            <Text>My Consults</Text>
-            <Image
-              source={require("../../../assets/images/profile/next.png")}
-            />
-          </View>
-        </View>
-        <View style={styles.profileItems}>
-          <Image
-            style={{ marginRight: 20 }}
-            source={require("../../../assets/images/profile/clock.png")}
-          />
-          <View style={styles.navItem}>
-            <Text>My orders</Text>
-            <Image
-              source={require("../../../assets/images/profile/next.png")}
-            />
-          </View>
-        </View>
-        <View style={styles.profileItems}>
-          <Image
-            style={{ marginRight: 20 }}
-            source={require("../../../assets/images/profile/clock.png")}
-          />
-          <View style={styles.navItem}>
-            <Text>Billing</Text>
-            <Image
-              source={require("../../../assets/images/profile/next.png")}
-            />
-          </View>
-        </View>
-        <View style={styles.profileItems}>
-          <Image
-            style={{ marginRight: 20 }}
-            source={require("../../../assets/images/profile/clock.png")}
-          />
-          <View style={styles.navItem}>
-            <Text>Faq</Text>
-            <Image
-              source={require("../../../assets/images/profile/next.png")}
-            />
-          </View>
-        </View>
-        <View style={styles.profileItems}>
-          <Image
-            style={{ marginRight: 20 }}
-            source={require("../../../assets/images/profile/clock.png")}
-          />
-          <View style={styles.navItem}>
-            <Text>Settings</Text>
-            <Image
-              source={require("../../../assets/images/profile/next.png")}
-            />
-          </View>
-        </View>
+        <FlatList
+          data={listItems}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => {
+            return <View style={styles.profileItems}>
+              <Image
+                style={{ marginRight: 20 }}
+                source={item.icon}
+              />
+              <View style={styles.navItemms}>
+                <Text>{item.name}</Text>
+                <Image
+                  style={styles.nextIcon}
+                  source={require("../../../assets/images/profile/next.png")}
+                />
+              </View>
+            </View>
+
+          }}>
+        </FlatList>
       </View>
 
     </View>
@@ -107,10 +86,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center'
   },
-  name: 
-  { fontSize: 20,
+  name:
+  {
+    fontSize: 20,
     fontWeight: '700',
-    color: '#091C3F' },
+    color: '#091C3F'
+  },
   mainContent: {
     marginTop: 42,
   },
@@ -123,9 +104,12 @@ const styles = StyleSheet.create({
     borderColor: '#091C3F14',
     borderStyle: 'solid'
   },
-  ItenavItemms: {
+  navItemms: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between'
+  },
+  nextIcon:{
+     alignSelf: 'flex-end' 
   }
 });
