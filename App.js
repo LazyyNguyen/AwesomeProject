@@ -1,16 +1,16 @@
-//import * as React from 'react';
-import { Text, View } from 'react-native';
+import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-
 import Navigation from './src/components/Navigation';
 
 
 
-
-export default function App() {
+function App() {
   return (
     <NavigationContainer>
       <Navigation />
     </NavigationContainer>
+    //import * as React from 'react';
   );
 }
+
+export default App;

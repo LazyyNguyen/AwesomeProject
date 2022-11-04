@@ -11,7 +11,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Banner from '../Components/Banner';
 import DiabetesCare from '../Components/DiabetesCare';
 import AllProducts from '../Components/AllProducts';
-function Feed() {
+function Feed({navigation}) {
   return (
 
     <View style={styles.wrapper}>
@@ -19,7 +19,7 @@ function Feed() {
         <ScrollView showsVerticalScrollIndicator={false}>
           <Banner />
           <DiabetesCare />
-          <AllProducts />
+          <AllProducts navigation={navigation}/>
         </ScrollView>
       </View>
     </View>

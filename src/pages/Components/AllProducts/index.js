@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, FlatList, ScrollView, Button } from "react-native";
 
-
 export default function AllProducts({ navigation }) {
-
   const [listProducts, setListProducts] = useState([
     {
       id: 0,
@@ -56,7 +54,7 @@ export default function AllProducts({ navigation }) {
               <Text style={styles.price}>${item.price}</Text>
               <Button
                 title="Go to Details"
-                // onPress={() => navigation.navigate('Details')}
+                onPress={() => navigation.navigate('DetailsScreen')}
               />
             </View>
           }}>

@@ -8,21 +8,22 @@ import {
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-
-import Feed from '../../pages/Feed';
+import StackNavigation from '../StackNavigation/StackNavigation';
+// import Feed from '../../pages/Feed';
 import Notifications from '../../pages/Notifications';
 import Profile from '../../pages/Profile';
 import Cart from '../../pages/Cart';
 import Create from '../../pages/Create';
-
+import DetailsScreen from '../../pages/DetailsScreen';
 
 
 const Tab = createBottomTabNavigator();
 
 function Navigation() {
   return (
+    <>
     <Tab.Navigator
-      initialRouteName="My Profile"
+      initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: '#4157FF',
 
@@ -30,8 +31,8 @@ function Navigation() {
     >
       <Tab.Screen
 
-        name="Feed"
-        component={Feed}
+        name="Home"
+        component={StackNavigation}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
@@ -80,8 +81,17 @@ function Navigation() {
           ),
         }}
       />
+      {/* <Tab.Screen 
+      
+      name="Detail"
+      component={DetailsScreen}
+      options={{
+        tabBarStyle: {display: 'none'}
+      }}
+      /> */}
 
     </Tab.Navigator>
+    </>
   );
 }
 export default Navigation;
