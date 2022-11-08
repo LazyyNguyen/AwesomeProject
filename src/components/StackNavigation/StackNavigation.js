@@ -15,6 +15,9 @@ export default function StackNavigation({navigation}) {
       }}
     >
       <Stack.Screen
+      options={{
+        headerShown: false,
+      }}
         name="Feed" component={Feed} />
       <Stack.Screen
         options={{

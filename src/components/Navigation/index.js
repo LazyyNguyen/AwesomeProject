@@ -10,7 +10,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import StackNavigation from '../StackNavigation/StackNavigation';
 // import Feed from '../../pages/Feed';
-import Notifications from '../../pages/Notifications';
+import Collections from '../../pages/Collections';
 import Profile from '../../pages/Profile';
 import Cart from '../../pages/Cart';
 import Create from '../../pages/Create';
@@ -42,25 +42,17 @@ function Navigation() {
         }}
       />
       <Tab.Screen
-        name="Notifications"
-        component={Notifications}
+        name="Collections"
+        component={Collections}
         options={{
-          tabBarLabel: 'Notifications',
+          tabBarLabel: 'Collections',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={size} />
+            <MaterialCommunityIcons name="wallet" color={color} size={size} />
           ),
+          headerShown: false,
         }}
       />
-      <Tab.Screen
-        name="Create"
-        component={Create}
-        options={{
-          tabBarLabel: 'Create',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="plus" color={color} size={size} />
-          ),
-        }}
-      />
+      
       <Tab.Screen
         name="Cart"
         component={Cart}
@@ -72,24 +64,15 @@ function Navigation() {
         }}
       />
       <Tab.Screen
-        name="My Profile"
+        name="About us"
         component={Profile}
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: 'About us',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />
           ),
         }}
       />
-      {/* <Tab.Screen 
-      
-      name="Detail"
-      component={DetailsScreen}
-      options={{
-        tabBarStyle: {display: 'none'}
-      }}
-      /> */}
-
     </Tab.Navigator>
     </>
   );
